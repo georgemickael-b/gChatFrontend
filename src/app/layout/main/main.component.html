@@ -1,0 +1,25 @@
+<style>
+        .container {
+          width: 1200px;
+          height: 800px;
+          border: 1px solid #a3a3a3;
+          margin: auto;
+        
+        }
+      </style>
+<div *ngIf="!loading">
+    <app-header></app-header>
+    <mat-drawer-container class="container">
+        <mat-drawer mode="side" opened>
+            <app-sidebar> </app-sidebar>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div style="height:100%;">
+                <app-chat-area></app-chat-area>
+            </div>
+            <div style="height:10%;position: absolute;bottom: 0;right:0;left:0;">
+                <app-message-area></app-message-area>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

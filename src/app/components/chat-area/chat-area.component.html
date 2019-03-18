@@ -1,0 +1,30 @@
+<div class="" *ngIf="!loading" style="height:90%;overflow-y:scroll;">
+    <mat-toolbar color="primary" style="position: absolute;z-index: 1000;">
+        <mat-toolbar-row>
+            <img style=" border-radius: 50%;height:50px;width:50px;"
+                src="{{ partner.picture ?  partner.picture : '/assets/img/common/useravatar.png'}}">
+            <div style="display: flex;flex-direction: column;margin-left:10px;">
+                <span class="capitalize" style="height:20px;">{{partner.name}}</span>
+                <small style="height:20px;">online</small>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div style="margin-top:80px;">
+        <div *ngFor="let message of messages">
+            <div style="display: flex;" [style.flex-direction]="!isMessageMine(message) ? 'row' : 'row-reverse' ">
+                <div class="talk-bubble tri-right" [ngClass]="{ 
+                'talk-bubble-partner left-top': !isMessageMine(message),
+                'talk-bubble-me btm-right': isMessageMine(message)}">
+                    <div class="talktext">
+                        <p> {{message.message}}</p>
+                        <div style="text-align: right;">
+                            <small> {{formatDate(message.createdAt)}}</small>&nbsp;
+                            <small *ngIf="message.readBy.length == 0">&#x2714;</small>
+                            <small *ngIf="message.readBy.length > 0">&#x2714;&#x2714;</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

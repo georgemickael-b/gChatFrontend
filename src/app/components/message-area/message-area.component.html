@@ -1,0 +1,7 @@
+<div style="width:100%;height:100%;display: flex;align-items: center;" *ngIf="chat">
+    <textarea matInput [(ngModel)]="message" style="width:90%;height:90%;"></textarea>
+    <div style="padding-left:15px">
+        <button mat-fab color="primary" (click)="sendMessage()">Send</button>
+    </div>
+
+</div>

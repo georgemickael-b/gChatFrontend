@@ -1,0 +1,15 @@
+<mat-nav-list *ngIf="chats && chats.length>0">
+    <mat-list-item *ngFor="let chat of chats" (click)="onChatListItemClick(chat)">
+        <img matListAvatar
+            src="{{ chat.partner.picture ?  chat.partner.picture : '/assets/img/common/useravatar.png'}}">
+        <h3 matLine> {{ chat.partner.name}} </h3>
+        <p matLine>
+            <span>Online</span>
+        </p>
+    </mat-list-item>
+</mat-nav-list>
+
+
+<div *ngIf="chats && chats.length==0">
+    No chats yet. You can start new chat with users from 'People' tab.
+</div>
